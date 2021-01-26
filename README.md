@@ -7,13 +7,13 @@ Grammar for your words.
 Input:
 
 ```
-text=helo my name es andy
+text=helo my name name es andy
 ```
 
 URL encoded:
 
 ```
-text=helo%20my%20name%20es%20andy
+text=helo%20my%20name%20name%20es%20andy
 ```
 
 Output:
@@ -22,7 +22,7 @@ Output:
 {
     "offset": 0,
     "length": 4,
-    "text": "helo my name es andy",
+    "text": "helo my name name es andy",
     "type": "SENTENCE_START_UPPERCASE",
     "message": "This sentence does not start with an uppercase letter.",
     "suggestions": [
@@ -32,9 +32,21 @@ Output:
     ],
 },
 {
+    "offset": 8,
+    "length": 9,
+    "text": "helo my name name es andy",
+    "type": "WORD_REPEATED",
+    "message": "You repeated a word.",
+    "suggestions": [
+        {
+            "value": "name"
+        }
+    ],
+},
+{
     "offset": 13,
     "length": 2,
-    "text": "helo my name es andy",
+    "text": "helo my name name es andy",
     "type": "SPELLING_MISTAKE",
     "message": "Possible spelling mistake found.",
     "suggestions": [
@@ -49,7 +61,7 @@ Output:
 {
     "offset": 16,
     "length": 4,
-    "text": "helo my name es andy",
+    "text": "helo my name name es andy",
     "type": "SPELLING_MISTAKE",
     "message": "Possible spelling mistake found.",
     "suggestions": [
