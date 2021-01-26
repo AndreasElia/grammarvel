@@ -19,6 +19,7 @@
   "homepage": "https://github.com/AndreasElia/grammarvel#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "n-readlines": "^1.0.1"
+    "n-readlines": "^1.0.1",
+    "natural": "^2.4.5"
   }
 }

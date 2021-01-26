@@ -4,31 +4,19 @@ class American extends Rule {
   constructor() {
     super()
 
-    this.file = 'replace.txt'
+    this.description = 'American words easily confused in British English'
 
-    this.data = this.getSplitData()
+    this.data = this.getSplitData('replace.txt')
   }
 
-  description() {
-    return 'American words easily confused in British English'
-  }
-
-  process(text) {
-    this.text = text
-
-    let splitText = this.text.split(' ')
-
-    splitText.forEach((word, index) => {
-      const wordMatch = this.data[word.toLowerCase()]
+  process(tokenText) {
+    tokenText.forEach((word, index) => {
+      const wordMatch = this.data[word]
 
       if (wordMatch) {
-        splitText[index] = wordMatch
+        tokenText[index] = wordMatch
       }
     })
-
-    splitText = splitText.join(' ')
-
-    console.log(`Output: ${splitText}`)
   }
 }
 

@@ -3,27 +3,27 @@ const lineByLine = require('n-readlines')
 
 class Rule {
   constructor() {
-    this.file = undefined
-
     this.data = []
+
+    this.tokenText = undefined
   }
 
   description() {
     return 'Rule description goes here.'
   }
 
-  process(text) {
-    //
+  process(tokenText) {
+    this.tokenText = tokenText
   }
 
-  getData() {
-    const data = fs.readFileSync(`${__dirname}/../data/${this.file}`, 'utf8')
+  getData(file) {
+    const data = fs.readFileSync(`${__dirname}/../data/${file}`, 'utf8')
 
     return data
   }
 
-  getSplitData() {
-    const liner = new lineByLine(`${__dirname}/../data/${this.file}`)
+  getSplitData(file) {
+    const liner = new lineByLine(`${__dirname}/../data/${file}`)
 
     let line
     let lineNumber = 0
@@ -31,13 +31,11 @@ class Rule {
     while (line = liner.next()) {
       const lineData = line.toString('ascii')
 
-      if (!lineData || lineData.charAt(0) === '#') continue
-
       const parts = lineData.split('=')
 
-      // if (!parts.length !== 2) continue
-
-      this.data[parts[0]] = parts[1]
+      if (parts.length === 2) {
+        this.data[parts[0]] = parts[1]
+      }
 
       lineNumber++
     }

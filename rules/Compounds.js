@@ -16,13 +16,19 @@ class Compounds extends Rule {
   constructor() {
     super()
 
-    this.file = 'compounds.txt'
+    this.description = 'Checks if hyphenated words were spelled with dashes (e.g. \'T — shirt\' instead \'T-shirt\').'
 
-    this.data = this.getData()
+    this.data = this.getData('compounds.txt')
   }
 
-  description() {
-    return 'Checks if hyphenated words were spelled with dashes (e.g. \'T — shirt\' instead \'T-shirt\').'
+  process(tokenText) {
+    tokenText.forEach((word, index) => {
+      const wordMatch = this.data[word]
+
+      if (wordMatch) {
+        tokenText[index] = wordMatch
+      }
+    })
   }
 }
 
