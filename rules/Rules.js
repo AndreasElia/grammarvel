@@ -11,7 +11,7 @@ class Rules {
     ]
 
     this.rules.forEach(rule => {
-      rule.process(this.text)
+      rule.getData(() => rule.process(this.text))
     })
 
     console.log('Rules Added')

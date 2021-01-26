@@ -1,19 +1,12 @@
 const Rule = require('./Rule')
-const fs = require('fs')
 
 class American extends Rule {
   constructor() {
     super()
 
-    const readStream = fs.createReadStream(__dirname + '/../data/replace.txt', 'utf8')
+    this.file = 'replace.txt'
 
-    readStream.on('data', (chunk) => {
-      this.compounds = chunk
-    }).on('end', () => {
-      console.log(this.compounds)
-    })
-
-    console.log('Compounds Added')
+    console.log('American Added')
   }
 
   description() {
@@ -21,7 +14,7 @@ class American extends Rule {
   }
 
   process(text) {
-    console.log(this.compounds)
+    console.log(this.data)
   }
 }
 
