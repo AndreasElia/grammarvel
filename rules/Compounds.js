@@ -19,8 +19,6 @@ class Compounds extends Rule {
     this.file = 'compounds.txt'
 
     this.data = this.getData()
-
-    console.log('Compounds Added')
   }
 
   description() {

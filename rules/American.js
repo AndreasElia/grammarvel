@@ -6,9 +6,7 @@ class American extends Rule {
 
     this.file = 'replace.txt'
 
-    this.data = this.getData()
-
-    console.log('American Added')
+    this.data = this.getSplitData()
   }
 
   description() {
@@ -18,7 +16,19 @@ class American extends Rule {
   process(text) {
     this.text = text
 
-    console.log(this.text)
+    let splitText = this.text.split(' ')
+
+    splitText.forEach((word, index) => {
+      const wordMatch = this.data[word.toLowerCase()]
+
+      if (wordMatch) {
+        splitText[index] = wordMatch
+      }
+    })
+
+    splitText = splitText.join(' ')
+
+    console.log(`Output: ${splitText}`)
   }
 }
 
