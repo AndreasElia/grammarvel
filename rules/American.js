@@ -6,6 +6,8 @@ class American extends Rule {
 
     this.file = 'replace.txt'
 
+    this.data = this.getData()
+
     console.log('American Added')
   }
 
@@ -14,7 +16,9 @@ class American extends Rule {
   }
 
   process(text) {
-    console.log(this.data)
+    this.text = text
+
+    console.log(this.text)
   }
 }
 

@@ -18,15 +18,13 @@ class Compounds extends Rule {
 
     this.file = 'compounds.txt'
 
+    this.data = this.getData()
+
     console.log('Compounds Added')
   }
 
   description() {
     return 'Checks if hyphenated words were spelled with dashes (e.g. \'T — shirt\' instead \'T-shirt\').'
-  }
-
-  process(text) {
-    // console.log(this.data)
   }
 }
 

@@ -6,10 +6,6 @@ class Duplicates extends Rule {
 
     console.log('Duplicates Added')
   }
-
-  process(text) {
-    console.log('todo d')
-  }
 }
 
 module.exports = Duplicates
